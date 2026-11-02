@@ -16,6 +16,10 @@ def create_app(test_config=None):
 
     os.makedirs(app.instance_path, exist_ok=True)
 
+    from app import database
+
+    database.init_app(app)
+
     from app.routes.item_routes import items_bp
     from app.routes.loan_routes import loans_bp
 
